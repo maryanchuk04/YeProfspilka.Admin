@@ -1,0 +1,6 @@
+<input 
+	[type]="type"
+ 	[ngClass]="['w-full h-12 border-2 border-black text-xl rounded-standart focus-visible:outline-none px-3', classStyles]"
+ 	[placeholder]="placeholder"
+ 	(ngModelChange)="valueChange.emit($event)"
+>
