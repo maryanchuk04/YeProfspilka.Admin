@@ -1,4 +1,4 @@
-export enum Roles {
+export enum Role {
 	NotVerified = 0,
 	Student = 1,
 	MemberProfspilka = 2,

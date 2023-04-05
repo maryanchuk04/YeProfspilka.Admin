@@ -22,6 +22,7 @@ import {
 import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
 import { environment } from 'src/environments/environment';
 import { HttpClientModule } from '@angular/common/http';
+import EffectsModule
 
 @NgModule({
 	declarations: [
@@ -45,6 +46,7 @@ import { HttpClientModule } from '@angular/common/http';
 		AppRoutingModule,
 		SocialLoginModule,
 		HttpClientModule,
+		EffectsModule.forFeature()
 	],
 	providers: [
 		{
