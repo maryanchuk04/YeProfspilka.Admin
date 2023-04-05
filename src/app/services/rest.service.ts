@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 
@@ -9,21 +9,34 @@ import { environment } from 'src/environments/environment';
 export class RestService<T> {
 	baseURL: string = environment.apiUrl;
 
+	private headers: HttpHeaders = new HttpHeaders({
+		'Content-Type': 'application/json',
+		Authorization: `Bearer ${() => localStorage.getItem('token')}`,
+	});
+
 	constructor(private http: HttpClient) {}
 
 	getOne(url: string): Observable<T> {
-		return this.http.get<T>(`${this.baseURL}/${url}`);
+		return this.http.get<T>(`${this.baseURL}/${url}`, {
+			headers: this.headers,
+		});
 	}
 
 	getAll(url: string): Observable<T[]> {
-		return this.http.get<T[]>(`${this.baseURL}/${url}`);
+		return this.http.get<T[]>(`${this.baseURL}/${url}`, {
+			headers: this.headers,
+		});
 	}
 
 	post(url: string, data: any): Observable<T> {
-		return this.http.post<T>(`${this.baseURL}/${url}`, data);
+		return this.http.post<T>(`${this.baseURL}/${url}`, data, {
+			headers: this.headers,
+		});
 	}
 
 	delete(url: string) {
-		return this.http.delete(`${this.baseURL}/${url}`);
+		return this.http.delete(`${this.baseURL}/${url}`, {
+			headers: this.headers,
+		});
 	}
 }

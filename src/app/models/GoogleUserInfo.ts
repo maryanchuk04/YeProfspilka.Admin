@@ -1,8 +1,6 @@
 export interface GoogleUserInfo {
-	info: {
-		sub: string;
-		email: string;
-		name: string;
-		picture: string;
-	};
+	hd: string;
+	email: string;
+	fullName: string;
+	avatar: string;
 }
