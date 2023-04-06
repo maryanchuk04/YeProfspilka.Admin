@@ -7,13 +7,13 @@ import {
 } from '../actions/alert.action';
 
 export enum AlertType {
-	Success,
-	Error,
+	Success = 'Success',
+	Error = 'Error',
 }
 
 export const defaultAlert: Alert = {
 	type: AlertType.Error,
-	message: 'Вибачте!Щось пішло не так!',
+	message: 'Вибачте! Щось пішло не так!',
 	autoClose: true,
 	duration: 4000,
 	open: false,
@@ -27,7 +27,7 @@ const initialState: AlertState = {
 	data: defaultAlert,
 };
 
-export const alertReducer = createReducer(
+export const alertReducer = createReducer<AlertState>(
 	initialState,
 	on(showDefaultAlert, (state) => ({
 		...state,

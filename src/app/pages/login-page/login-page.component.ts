@@ -1,6 +1,5 @@
 import { SocialUser } from '@abacritt/angularx-social-login';
 import { Component, OnInit } from '@angular/core';
-import { AuthenticateService } from 'src/app/services/authenticate.service';
 import {
 	GoogleLoginProvider,
 	SocialAuthService,
@@ -10,6 +9,7 @@ import AppState from 'src/app/store';
 import { EMPTY } from 'rxjs';
 import { googleLoginUser } from 'src/app/store/actions/user.action';
 import { GoogleUserInfo } from 'src/app/models/GoogleUserInfo';
+import { Router } from '@angular/router';
 
 @Component({
 	selector: 'app-login-page',
@@ -20,6 +20,7 @@ export class LoginPageComponent implements OnInit {
 	constructor(
 		private socialAuthService: SocialAuthService,
 		private store: Store<AppState>,
+		private router: Router,
 	) {}
 
 	ngOnInit(): void {
@@ -35,6 +36,7 @@ export class LoginPageComponent implements OnInit {
 				),
 			};
 			this.store.dispatch(googleLoginUser({ googleModel }));
+			this.router.navigate(['/']);
 		});
 	}
 

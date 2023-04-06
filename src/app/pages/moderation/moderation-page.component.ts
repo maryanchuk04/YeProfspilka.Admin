@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import AppState from 'src/app/store';
+import { fetchQuestions } from 'src/app/store/actions/questions.action';
 
 @Component({
 	selector: 'app-moderation-page',
@@ -6,10 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ModerationPageComponent implements OnInit {
 	active: number = 0;
-	moderateOptions: string[] = ['Події', 'Переваги', 'Питання'];
-	constructor() {}
+	moderateOptions: string[] = ['Події', 'Переваги', 'Питання', 'Партнери'];
 
-	ngOnInit(): void {}
+	constructor(private store: Store<AppState>) {}
+
+	ngOnInit(): void {
+		this.store.dispatch(fetchQuestions());
+	}
 
 	changeActive(number: number) {
 		this.active = number;

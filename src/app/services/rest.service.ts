@@ -11,7 +11,7 @@ export class RestService<T> {
 
 	private headers: HttpHeaders = new HttpHeaders({
 		'Content-Type': 'application/json',
-		Authorization: `Bearer ${() => localStorage.getItem('token')}`,
+		Authorization: `Bearer ${localStorage.getItem('token')}`,
 	});
 
 	constructor(private http: HttpClient) {}

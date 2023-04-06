@@ -6,7 +6,7 @@ import { RestService } from './rest.service';
 	providedIn: 'root',
 })
 export class UserService {
-	url = '/user';
+	url = 'user';
 	constructor(private service: RestService<User>) {}
 
 	getCurrentUser() {

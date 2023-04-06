@@ -1,1 +1,13 @@
-<p>questions works!</p>
+<div class="w-[97%] mx-auto p-3 relative h-full overflow-y-auto">
+	<div class="absolute top-5 right-5">
+		<app-button classStyles="px-3">Додати</app-button>
+	</div>
+	<ng-container *ngIf="(loading$ | async); else elseTemplate">
+		<app-loader></app-loader>
+	</ng-container>
+	<ng-template #elseTemplate>
+		<div class="h-full w-full pt-10">
+			<app-question *ngFor="let item of questions$ | async" [question] = "item"></app-question>
+		</div>
+	</ng-template>
+</div>

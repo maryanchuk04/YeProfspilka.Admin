@@ -11,3 +11,10 @@ export const loginUserSuccess = createAction(
 	'[USER] Login user success',
 	props<{ user: User }>(),
 );
+
+export const fetchCurrentUser = createAction('[USER] Get current user pending');
+
+export const fetchCurrentUserSuccess = createAction(
+	'[USER] Get current user Success',
+	props<{ user: User }>(),
+);

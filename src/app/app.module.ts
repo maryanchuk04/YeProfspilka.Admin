@@ -16,7 +16,7 @@ import { AdvantagesComponent } from './components/moderation-components/advantag
 import { QuestionsComponent } from './components/moderation-components/questions/questions.component';
 import { GoogleButtonComponent } from './ui/google-button/google-button.component';
 import { environment } from 'src/environments/environment';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { EffectsModule } from '@ngrx/effects';
 import effects from './store/effects';
 import {
@@ -28,6 +28,16 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import reducers from './store/reducers';
 import { AlertComponent } from './components/alert/alert.component';
+import { IconButtonComponent } from './ui/icon-button/icon-button.component';
+import { ErrorInterceptor } from './services/error-interceptor.service';
+import { RestService } from './services/rest.service';
+import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { AdministratorPageComponent } from './pages/administrator-page/administrator-page.component';
+import { EventsComponent } from './components/moderation-components/events/events.component';
+import { EventCardComponent } from './components/event-card/event-card.component';
+import { AdvantageComponent } from './components/advantage/advantage.component';
+import { QuestionComponent } from './components/question/question.component';
+import { LoaderComponent } from './components/loader/loader.component';
 
 @NgModule({
 	declarations: [
@@ -45,13 +55,21 @@ import { AlertComponent } from './components/alert/alert.component';
 		AdvantagesComponent,
 		QuestionsComponent,
 		GoogleButtonComponent,
-  AlertComponent,
+		AlertComponent,
+		IconButtonComponent,
+		AdministratorPageComponent,
+		EventsComponent,
+		EventCardComponent,
+		AdvantageComponent,
+		QuestionComponent,
+		LoaderComponent,
 	],
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
 		SocialLoginModule,
 		HttpClientModule,
+		JwtModule,
 		StoreModule.forRoot(reducers),
 		EffectsModule.forRoot(effects),
 		StoreDevtoolsModule.instrument({
@@ -76,6 +94,14 @@ import { AlertComponent } from './components/alert/alert.component';
 				},
 			} as SocialAuthServiceConfig,
 		},
+		RestService,
+		{
+			provide: HTTP_INTERCEPTORS,
+			useClass: ErrorInterceptor,
+			multi: true,
+		},
+		{ provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+		JwtHelperService,
 	],
 	bootstrap: [AppComponent],
 })
