@@ -38,6 +38,8 @@ import { EventCardComponent } from './components/event-card/event-card.component
 import { AdvantageComponent } from './components/advantage/advantage.component';
 import { QuestionComponent } from './components/question/question.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { FormsModule } from '@angular/forms';
+import { ModalComponent } from './components/modal/modal.component';
 
 @NgModule({
 	declarations: [
@@ -63,6 +65,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 		AdvantageComponent,
 		QuestionComponent,
 		LoaderComponent,
+  ModalComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -70,6 +73,7 @@ import { LoaderComponent } from './components/loader/loader.component';
 		SocialLoginModule,
 		HttpClientModule,
 		JwtModule,
+		FormsModule,
 		StoreModule.forRoot(reducers),
 		EffectsModule.forRoot(effects),
 		StoreDevtoolsModule.instrument({

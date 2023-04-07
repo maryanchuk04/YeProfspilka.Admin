@@ -9,7 +9,8 @@ export class TextFieldComponent implements OnInit {
 	@Input() classStyles: string = '';
 	@Input() placeholder: string = '';
 	@Input() value: string = '';
-	@Output() valueChange = new EventEmitter<Event>();
+	@Input() defaultValue: string = '';
+	@Output() valueChange = new EventEmitter<string>();
 
 	constructor() {}
 

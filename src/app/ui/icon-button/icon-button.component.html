@@ -1,3 +1,5 @@
-<button class="w-10 h-10 rounded-full hover:bg-black/10" (click)="click()">
+<button class="w-10 h-10 rounded-full hover:bg-black/10 duration-200 disabled:cursor-not-allowed"
+		(click)="click()"
+	>
 	<i [ngClass]="icon"></i>
 </button>

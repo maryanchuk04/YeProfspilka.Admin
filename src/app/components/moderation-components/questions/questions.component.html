@@ -1,13 +1,27 @@
 <div class="w-[97%] mx-auto p-3 relative h-full overflow-y-auto">
-	<div class="absolute top-5 right-5">
-		<app-button classStyles="px-3">Додати</app-button>
-	</div>
 	<ng-container *ngIf="(loading$ | async); else elseTemplate">
 		<app-loader></app-loader>
 	</ng-container>
 	<ng-template #elseTemplate>
-		<div class="h-full w-full pt-10">
+		<div class="h-fit flex justify-between">
+			<div>
+				<app-text-field placeholder="Знайти..." [(value)] ="search" (valueChange)="handleChange(search)"></app-text-field>
+			</div>
+			<app-button classStyles="px-3" (click)="handleOpenModal()">Додати</app-button>
+		</div>
+		<div class="h-fit w-full pt-10">
 			<app-question *ngFor="let item of questions$ | async" [question] = "item"></app-question>
 		</div>
+		<app-modal *ngIf="modal" (close)="handleCloseModal()">
+			<div class="w-[600px] h-96">
+				<div class="w-11/12 mx-auto">
+					<h1 class="text-2xl text-center my-4">Створіть нове питання!</h1>
+					<hr>
+					<app-text-field placeholder="Введіть саме питання..." class="my-3" classStyles="my-5" [(value)]="question" ></app-text-field>
+					<textarea placeholder="Введіть відповідь на питання..." [(ngModel)]="answer" class="text-xl mt-2 w-full border-2 px-2 py-1 focus-visible:outline-none border-black rounded-standart" rows="4"></textarea>
+					<app-button (onClick)="create()" classStyles="my-5" [disabled]="!question || !answer">Створити</app-button>
+				</div>
+			</div>
+		</app-modal>
 	</ng-template>
 </div>

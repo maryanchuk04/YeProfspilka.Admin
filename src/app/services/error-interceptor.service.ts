@@ -4,6 +4,7 @@ import {
 	HttpRequest,
 	HttpHandler,
 	HttpErrorResponse,
+	HttpStatusCode,
 } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
@@ -27,6 +28,21 @@ export class ErrorInterceptor implements HttpInterceptor {
 				} else {
 					// серверна помилка
 					errorMessage = `Код помилки: ${error.status}\nПовідомлення: ${error.message}`;
+					if (error.status === HttpStatusCode.Forbidden) {
+						this.store.dispatch(
+							showAlert({
+								alert: {
+									type: AlertType.Error,
+									autoClose: true,
+									message:
+										'У вас немає доступу, щоб виконати цю дію!',
+									duration: 4000,
+									open: true,
+								},
+							}),
+						);
+						return throwError(errorMessage);
+					}
 					if (error.error) {
 						this.store.dispatch(
 							showAlert({

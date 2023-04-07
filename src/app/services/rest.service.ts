@@ -39,4 +39,10 @@ export class RestService<T> {
 			headers: this.headers,
 		});
 	}
+
+	put(url: string, body: T): Observable<T> {
+		return this.http.put<T>(`${this.baseURL}/${url}`, body, {
+			headers: this.headers,
+		});
+	}
 }

@@ -19,7 +19,14 @@ export class QuestionService {
 		return this.service.delete(`${this.url}/${id}`);
 	}
 
-	create(question: { question: string; answer: string }): Observable<any> {
+	create(question: {
+		questionText: string;
+		answer: string;
+	}): Observable<any> {
 		return this.service.post(this.url, question);
+	}
+
+	update(question: Question): Observable<Question> {
+		return this.service.put(this.url, question);
 	}
 }
