@@ -11,7 +11,7 @@ export class AuthGuardService implements CanActivate {
 		public router: Router,
 		private tokenService: TokenService,
 		private jwtHelper: JwtHelperService,
-	) {}
+	) { }
 
 	canActivate(): boolean {
 		if (!this.tokenService.get()) {

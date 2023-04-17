@@ -1,13 +1,14 @@
-<ng-container  *ngIf="alert$ | async as alert">
-	<div class="absolute z-50 top-5 right-5 h-32 w-fit max-w-[400px] px-2 rounded-standart shadow-xl" [ngClass]="alert.type === AlertType.Error ? 'bg-red-500' : 'bg-green-500'" *ngIf="alert.open">
+<ng-container *ngIf="alert$ | async as alert">
+	<div class="absolute z-50 top-5 right-5 h-32 w-fit max-w-[400px] px-2 rounded-standart shadow-xl"
+		[ngClass]="alert.type === AlertType.Error ? 'bg-red-500' : 'bg-green-500'" *ngIf="alert.open">
 		<div class="h-full w-11/12 mx-auto flex items-center justify-around">
 			<div class="mx-2">
-				<h1 class="text-2xl font-bold text-white">{{alert.type === AlertType.Error ? "Помилка!" : "Успішно!" }}</h1>
+				<h1 class="text-2xl font-bold text-white">{{alert.type === AlertType.Error ? "Помилка!" : "Успішно!" }}
+				</h1>
 				<hr>
 				<h3 class="text-xl text-white mt-1 text ">{{alert.message}}</h3>
-			</div>	
+			</div>
 			<app-icon-button icon="fa-regular fa-xmark text-white mx-1" (handleClick)="close()"></app-icon-button>
 		</div>
 	</div>
 </ng-container>
-

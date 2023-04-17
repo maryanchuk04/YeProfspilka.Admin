@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-advantage',
-  templateUrl: './advantage.component.html',
-  styleUrls: ['./advantage.component.css']
+	selector: 'app-advantage',
+	templateUrl: './advantage.component.html',
+	styleUrls: ['./advantage.component.css']
 })
 export class AdvantageComponent implements OnInit {
 
-  constructor() { }
+	constructor() { }
 
-  ngOnInit(): void {
-  }
+	ngOnInit(): void {
+	}
 
 }

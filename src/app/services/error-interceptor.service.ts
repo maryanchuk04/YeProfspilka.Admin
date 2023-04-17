@@ -15,7 +15,7 @@ import { AlertType } from '../store/reducers/alert.reducer';
 
 @Injectable()
 export class ErrorInterceptor implements HttpInterceptor {
-	constructor(private store: Store<AppState>) {}
+	constructor(private store: Store<AppState>) { }
 
 	intercept(request: HttpRequest<any>, next: HttpHandler) {
 		return next.handle(request).pipe(

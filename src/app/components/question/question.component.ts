@@ -17,7 +17,7 @@ export class QuestionComponent implements OnInit {
 	@Input() question: Question;
 	isEdit: boolean = false;
 
-	constructor(private store: Store<AppState>) {}
+	constructor(private store: Store<AppState>) { }
 
 	ngOnInit(): void {
 		this.answer = this.question.answer;

@@ -14,7 +14,7 @@ import { closeAlert } from 'src/app/store/actions/alert.action';
 export class AlertComponent implements OnInit {
 	alert$: Observable<Alert>;
 	AlertType = AlertType;
-	constructor(private store: Store<AppState>) {}
+	constructor(private store: Store<AppState>) { }
 
 	ngOnInit(): void {
 		this.alert$ = this.store.select(selectAlertState);

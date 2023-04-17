@@ -65,7 +65,7 @@ import { ModalComponent } from './components/modal/modal.component';
 		AdvantageComponent,
 		QuestionComponent,
 		LoaderComponent,
-  ModalComponent,
+		ModalComponent,
 	],
 	imports: [
 		BrowserModule,
@@ -109,4 +109,4 @@ import { ModalComponent } from './components/modal/modal.component';
 	],
 	bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }
