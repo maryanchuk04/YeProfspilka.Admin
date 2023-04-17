@@ -7,10 +7,14 @@ import { RestService } from './rest.service';
 	providedIn: 'root',
 })
 export class PartnersService {
-	url: string = '/partners';
-	constructor(private servise: RestService<Partner>) {}
+	url: string = 'partners';
+	constructor(private servise: RestService<Partner>) { }
 
 	get(): Observable<Partner[]> {
 		return this.servise.getAll(this.url);
+	}
+
+	create(partner: Partner): Observable<Partner> {
+		return this.servise.post(this.url, partner);
 	}
 }

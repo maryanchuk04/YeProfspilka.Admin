@@ -40,6 +40,10 @@ import { QuestionComponent } from './components/question/question.component';
 import { LoaderComponent } from './components/loader/loader.component';
 import { FormsModule } from '@angular/forms';
 import { ModalComponent } from './components/modal/modal.component';
+import { ContainerComponent } from './shared/container/container.component';
+import { ModerationHeaderComponent } from './shared/moderation-header/moderation-header.component';
+import { PartnerComponent } from './components/partner/partner.component';
+import { DragDropDirective } from './directives/drag-drop.directive';
 
 @NgModule({
 	declarations: [
@@ -66,6 +70,10 @@ import { ModalComponent } from './components/modal/modal.component';
 		QuestionComponent,
 		LoaderComponent,
 		ModalComponent,
+		ContainerComponent,
+		ModerationHeaderComponent,
+		PartnerComponent,
+		DragDropDirective
 	],
 	imports: [
 		BrowserModule,

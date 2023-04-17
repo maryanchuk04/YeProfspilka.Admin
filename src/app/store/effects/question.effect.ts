@@ -18,7 +18,7 @@ export class QuestionEffect {
 	constructor(
 		private actions$: Actions,
 		private questionService: QuestionService,
-	) {}
+	) { }
 
 	fetchQuestions$ = createEffect(() =>
 		this.actions$.pipe(

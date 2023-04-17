@@ -1,10 +1,13 @@
 <app-header></app-header>
 <div class="w-full min-h-[calc(100vh-4rem)] flex  border-t-2">
-	<app-moderation-sidebar class="w-1/6" [options]="moderateOptions" [active] ="active" (changeActive)="changeActive($event)"></app-moderation-sidebar>
+	<app-moderation-sidebar class="w-1/6" [options]="moderateOptions" [active]="active"
+		(changeActive)="changeActive($event)"></app-moderation-sidebar>
 	<div [ngSwitch]="active" class="w-5/6">
-		<app-events *ngSwitchCase="0"></app-events>
-		<app-advantages *ngSwitchCase="1"></app-advantages>
-		<app-questions *ngSwitchCase="2"></app-questions>
-		<app-partners *ngSwitchCase="3"></app-partners>
+		<app-container classNames="p-3 relative h-full overflow-y-auto">
+			<app-events *ngSwitchCase="3"></app-events>
+			<app-advantages *ngSwitchCase="1"></app-advantages>
+			<app-questions *ngSwitchCase="2"></app-questions>
+			<app-partners *ngSwitchCase="0"></app-partners>
+		</app-container>
 	</div>
 </div>
