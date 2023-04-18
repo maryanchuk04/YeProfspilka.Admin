@@ -46,9 +46,10 @@ export class PartnersComponent implements OnInit {
 			mainText: this.mainText,
 			subText: this.subText,
 			subTextLink: this.subTestLink,
-			imageUrl: this.image
-		}
+			image: this.image
+		} as Partner;
 
 		this.store.dispatch(createPartner({ partner }));
+		this.handleOpen(false);
 	}
 }

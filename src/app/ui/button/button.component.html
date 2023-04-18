@@ -1,6 +1,3 @@
-<button class="w-full h-12 font-regular rounded-standart text-xl bg-primary text-white enabled:hover:bg-primary/80 duration-200 disabled:cursor-not-allowed {{ classStyles }}"
-            (click)="onClick.emit()"
-			[disabled]="disabled"
-			>
-    <ng-content></ng-content>
+<button class="{{ styles() }} {{ classStyles }}" (click)="onClick.emit()" [disabled]="disabled">
+	<ng-content></ng-content>
 </button>

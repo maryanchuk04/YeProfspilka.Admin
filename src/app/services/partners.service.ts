@@ -17,4 +17,12 @@ export class PartnersService {
 	create(partner: Partner): Observable<Partner> {
 		return this.servise.post(this.url, partner);
 	}
+
+	update(partner: Partner): Observable<Partner> {
+		return this.servise.put(this.url, partner);
+	}
+
+	delete(id: string): Observable<any> {
+		return this.servise.delete(`${this.url}/${id}`);
+	}
 }

@@ -19,3 +19,23 @@ export const createPartnerSuccess = createAction(
 	'[PARTNERS] create partner success',
 	props<{ partner: Partner }>()
 )
+
+export const updatePartner = createAction(
+	'[PARTNERS] update partner',
+	props<{ partner: Partner }>()
+)
+
+export const updatePartnerSuccess = createAction(
+	'[PARTNERS] update partner',
+	props<{ partner: Partner }>()
+)
+
+export const deletePartner = createAction(
+	'[PARTNERS] delete partner',
+	props<{ id: string }>()
+)
+
+export const deletePartnerSuccess = createAction(
+	'[PARTNERS] delete partner success',
+	props<{ id: string }>()
+)

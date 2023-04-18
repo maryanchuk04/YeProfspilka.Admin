@@ -1,6 +1,7 @@
 export interface Partner {
+	id: '';
 	mainText: string;
 	subText: string;
 	subTextLink: string;
-	imageUrl: string;
+	image: string;
 }
